@@ -1,0 +1,36 @@
+type Query {
+  fetchClientDetails(clientId: ID!): ClientDetails
+
+  fetchClientInfo(clientId: ID!): BasicClientInfo
+
+  fetchClientDocuments(clientId: ID!): [Document]
+
+  fetchClientRelatives(clientId: ID!): [Relative]
+}
+
+type BasicClientInfo {
+  id: ID!
+  name: String
+  age: Int
+}
+
+type ClientDetails {
+  basicInfo: BasicClientInfo
+  documents: [Document]
+  relatives: [Relative]
+}
+
+type Document {
+  id: ID!
+  docType: String
+  number: String
+  issueDate: String
+  expiryDate: String
+}
+
+type Relative {
+  id: ID!
+  relation: String
+  fullName: String
+  age: Int
+}
